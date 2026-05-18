@@ -8,6 +8,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import com.dungeon.tracker.DungeonProfitTrackerMod;
 
 /**
  * Configuration manager for M7 RNG Tracker settings and persistence.
@@ -16,6 +19,7 @@ public class RNGConfig {
     private static final String CONFIG_DIR = "dungeon-profit-tracker";
     private static final String CONFIG_FILE = "rng-config.json";
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private static final Logger LOGGER = LoggerFactory.getLogger(DungeonProfitTrackerMod.MOD_ID);
     
     private HUDScope hudScope = HUDScope.BOTH;
     private Set<String> enabledOptionalDrops = new HashSet<>();
@@ -35,13 +39,17 @@ public class RNGConfig {
         
         if (configFile.exists()) {
             try (FileReader reader = new FileReader(configFile)) {
-                return GSON.fromJson(reader, RNGConfig.class);
+                RNGConfig loaded = GSON.fromJson(reader, RNGConfig.class);
+                LOGGER.info("RNG config loaded successfully");
+                return loaded != null ? loaded : new RNGConfig();
             } catch (IOException e) {
-                System.err.println("Failed to load RNG config: " + e.getMessage());
+                LOGGER.error("Failed to load RNG config: {}", e.getMessage());
             }
         }
         
-        return new RNGConfig();
+        RNGConfig config = new RNGConfig();
+        config.save();
+        return config;
     }
     
     /**
@@ -53,8 +61,9 @@ public class RNGConfig {
         
         try (FileWriter writer = new FileWriter(configFile)) {
             GSON.toJson(this, writer);
+            LOGGER.info("RNG config saved successfully");
         } catch (IOException e) {
-            System.err.println("Failed to save RNG config: " + e.getMessage());
+            LOGGER.error("Failed to save RNG config: {}", e.getMessage());
         }
     }
     
@@ -62,7 +71,8 @@ public class RNGConfig {
      * Get or create config directory
      */
     private static File getConfigFile() {
-        File dir = new File(System.getProperty("user.home") + File.separator + ".minecraft" + File.separator + CONFIG_DIR);
+        File dir = new File(System.getProperty("user.home") + File.separator + 
+                          ".minecraft" + File.separator + CONFIG_DIR);
         return new File(dir, CONFIG_FILE);
     }
     

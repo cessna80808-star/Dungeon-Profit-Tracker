@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "type": "fabric",
+  "color": "0xa0de76",
+  "entries": [
+    {
+      "version": "1.0.0",
+      "date": "2026-05-18",
+      "changes": [
+        "Initial release with focused M7 RNG tracking",
+        "5 core drops tracked by default (Wither Scrolls, Necron's Handle, Fifth Master Star)",
+        "Optional drops system (select up to 4 additional drops)",
+        "Configurable HUD display (Inventory Only, World Only, Both)",
+        "Persistent JSON configuration and statistics",
+        "/dprof config command for GUI settings",
+        "/dprof stats to view statistics",
+        "/dprof reset to clear all data"
+      ]
+    }
+  ]
+}

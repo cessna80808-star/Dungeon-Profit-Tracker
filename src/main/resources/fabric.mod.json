@@ -1,32 +1,31 @@
 {
   "schemaVersion": 1,
-  "id": "m7-dungeon-tracker",
+  "id": "dungeon-profit-tracker",
   "version": "${version}",
   "name": "Dungeon Profit Tracker",
-  "description": "Vibe coded to the max - Track Hypixel Skyblock dungeon profits, times, and RNG statistics",
-  "authors": ["cessna80808"],
+  "description": "Track M7 RNG drops with a focused, configurable HUD and persistent statistics.",
+  "authors": [
+    "cessna80808"
+  ],
   "contact": {
-    "homepage": "https://github.com/cessna80808-star/Dungeon-Profit-Tracker",
-    "sources": "https://github.com/cessna80808-star/Dungeon-Profit-Tracker"
+    "sources": "https://github.com/cessna80808-star/Dungeon-Profit-Tracker",
+    "issues": "https://github.com/cessna80808-star/Dungeon-Profit-Tracker/issues"
   },
   "license": "MIT",
+  "icon": "assets/dungeon-profit-tracker/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.cessna.m7tracker.DungeonTrackerMain"
+      "com.dungeon.tracker.DungeonProfitTrackerMod"
     ],
     "client": [
-      "com.cessna.m7tracker.client.DungeonTrackerClient"
+      "com.dungeon.tracker.client.DungeonProfitTrackerClient"
     ]
   },
   "mixins": [],
   "depends": {
-    "fabricloader": ">=0.16.0",
-    "minecraft": "1.21.1",
-    "java": ">=21"
-  },
-  "suggests": {
-    "skyhanni": "*",
-    "odin": "*"
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric": "*",
+    "minecraft": "1.21.1"
   }
 }

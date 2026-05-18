@@ -4,6 +4,17 @@
 
 A focused Minecraft Fabric mod for tracking Master Mode VII (M7) RNG drops with a clean, configurable HUD and persistent statistics.
 
+**MC Version:** 1.21.1  
+**Fabric Version:** 0.19.2  
+**Language:** Java
+
+## Quick Start
+
+1. Download the latest JAR from releases
+2. Place in `.minecraft/mods` folder
+3. Launch Minecraft with Fabric
+4. Type `/dprof config` in-game to configure
+
 ## Features
 
 ### 🎯 Core M7 RNG Tracking (Always Enabled)
@@ -40,25 +51,20 @@ Enable up to 4 additional drops from this list:
 Opens the configuration GUI with options to:
 - Toggle HUD display scope
 - Enable/disable optional drops (max 4)
+- View core drop statistics
 - Reset all statistics
 
 ### `/dprof stats`
-Displays current core drop statistics
+Displays current core drop statistics in chat
 
 ### `/dprof reset`
 Resets all statistics and config to defaults
-
-## Installation
-
-1. Download the latest JAR from releases
-2. Place in `.minecraft/mods` folder
-3. Launch Minecraft with Fabric loader
-4. Type `/dprof config` to get started
 
 ## Configuration
 
 Configs are stored in: `~/.minecraft/dungeon-profit-tracker/rng-config.json`
 
+Example config:
 ```json
 {
   "hudScope": "BOTH",
@@ -67,18 +73,56 @@ Configs are stored in: `~/.minecraft/dungeon-profit-tracker/rng-config.json`
 }
 ```
 
-## Architecture
+## Project Structure
 
 ```
-M7RNGTracker          - Core tracking logic & statistics
-RNGConfig            - Persistent configuration management
-ConfigGUI            - Menu system for user interaction
-RNGHudRenderer       - HUD display rendering
-DProfCommand         - Command handler & orchestration
+src/main/java/com/dungeon/tracker/
+├── DungeonProfitTrackerMod.java      # Main mod entry point
+├── client/
+│   └── DungeonProfitTrackerClient.java # Client initialization & commands
+├── rng/
+│   └── M7RNGTracker.java              # Core tracking logic
+├── config/
+│   └── RNGConfig.java                 # Persistent configuration
+├── gui/
+│   └── ConfigGUI.java                 # Menu system
+├── hud/
+│   └── RNGHudRenderer.java             # HUD display
+├── listener/
+│   └── ChatEventListener.java          # Chat event parsing
+└── commands/
+    └── DProfCommand.java               # Command orchestration
 ```
 
-## Version
+## Building from Source
 
-**Minecraft:** 1.21.1 Fabric  
-**Language:** Java  
-**License:** MIT
+```bash
+./gradlew build
+```
+
+JAR output: `build/libs/dungeon-profit-tracker-1.0.0.jar`
+
+## Requirements
+
+- Minecraft 1.21.1
+- Fabric Loader 0.19.2+
+- Fabric API 0.100.0+
+- Java 21+
+
+## License
+
+MIT License - See LICENSE file
+
+## Changelog
+
+### v1.0.0 (2026-05-18)
+- Initial release with focused M7 RNG tracking
+- 5 core drops tracked by default
+- Optional drops system (select up to 4)
+- Configurable HUD display
+- Persistent JSON configuration
+- Full command system
+
+## Support
+
+For issues or suggestions, open an issue on [GitHub](https://github.com/cessna80808-star/Dungeon-Profit-Tracker/issues)
