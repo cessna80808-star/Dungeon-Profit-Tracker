@@ -1,33 +1,32 @@
 {
-	"schemaVersion": 1,
-	"id": "m7-dungeon-tracker",
-	"version": "${version}",
-	"name": "M7 Dungeon Profit Tracker",
-	"description": "Tracks Hypixel Skyblock dungeon profitability with HUD display. Integrates with SkyHanni and Odin.",
-	"authors": [
-		"cessna80808-star"
-	],
-	"contact": {
-		"homepage": "https://github.com/cessna80808-star/Dungeon-Profit-Tracker",
-		"sources": "https://github.com/cessna80808-star/Dungeon-Profit-Tracker"
-	},
-	"license": "MIT",
-	"environment": "client",
-	"entrypoints": {
-		"client": [
-			"com.cessna.m7tracker.DungeonTrackerClient"
-		]
-	},
-	"mixins": [
-		"m7-dungeon-tracker.mixins.json"
-	],
-	"depends": {
-		"fabricloader": ">=${loader_version}",
-		"fabric": "*",
-		"minecraft": "${minecraft_version}"
-	},
-	"suggests": {
-		"skyhanni": "*",
-		"odin": "*"
-	}
+  "schemaVersion": 1,
+  "id": "m7-dungeon-tracker",
+  "version": "${version}",
+  "name": "Dungeon Profit Tracker",
+  "description": "Vibe coded to the max - Track Hypixel Skyblock dungeon profits, times, and RNG statistics",
+  "authors": ["cessna80808"],
+  "contact": {
+    "homepage": "https://github.com/cessna80808-star/Dungeon-Profit-Tracker",
+    "sources": "https://github.com/cessna80808-star/Dungeon-Profit-Tracker"
+  },
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.cessna.m7tracker.DungeonTrackerMain"
+    ],
+    "client": [
+      "com.cessna.m7tracker.client.DungeonTrackerClient"
+    ]
+  },
+  "mixins": [],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "1.21.1",
+    "java": ">=21"
+  },
+  "suggests": {
+    "skyhanni": "*",
+    "odin": "*"
+  }
 }
