@@ -1,0 +1,23 @@
+{
+  "rng.tracker.title": "M7 RNG Tracker",
+  "rng.tracker.core_drops": "Core Drops",
+  "rng.tracker.optional_drops": "Optional Drops",
+  "rng.tracker.total_rng": "Total RNG",
+  "rng.tracker.hud_scope.inventory": "Inventory Only",
+  "rng.tracker.hud_scope.world": "World Only",
+  "rng.tracker.hud_scope.both": "Both",
+  "drop.shadow_warp": "Shadow Warp",
+  "drop.wither_scroll": "Wither Scroll",
+  "drop.wither_shield": "Wither Shield",
+  "drop.implosion": "Implosion",
+  "drop.necron_handle": "Necron's Handle",
+  "drop.fifth_master_star": "Fifth Master Star",
+  "drop.dark_claymore": "Dark Claymore",
+  "drop.auto_recombobulator": "Auto Recombobulator",
+  "drop.recombobulator_3000": "Recombobulator 3000",
+  "drop.master_skull_t5": "Master Skull - Tier 5",
+  "drop.ofa_book": "Enchanted Book (One For All I)",
+  "drop.soul_eater_book": "Enchanted Book (Soul Eater I)",
+  "drop.necron_dye": "Necron Dye",
+  "drop.sadan_dye": "Sadan Dye"
+}
